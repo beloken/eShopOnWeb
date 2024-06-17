@@ -21,8 +21,10 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
   location: location
   properties: {
     serverFarmId: appServicePlan.id
+    httpsOnly: true
     siteConfig: {
       linuxFxVersion: 'DOTNETCORE|8.0'
+      ftpsState: 'FtpsOnly'
       appSettings: [
         {
           name: 'ASPNETCORE_ENVIRONMENT'
